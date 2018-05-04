@@ -35,7 +35,7 @@ class CustomFilter {
   handleBuildingQuery(args) {
     // Everytime a new query is fired, this function will execute.
     // We can use the query builder to send a valid query expression to the index.
-    // Use this page to see examples of possible valid query expression : http://www.coveo.com/go?dest=cloudhelp&lcid=9&context=35
+    // Use this page to see examples of possible valid query expression : http://www.coveo.com/go?dest=cloudhelp&lcid=9&context=357
     args.queryBuilder.advancedExpression.add(' ')
   }
 
