@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height">
+  <title>Bootcamp 2018</title>
+  <link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.3826/css/CoveoFullSearch.min.css" />
+  <script class="coveo-script" src="https://static.cloud.coveo.com/searchui/v2.3826/js/CoveoJsSearch.Lazy.min.js"></script>
+  <script src="https://static.cloud.coveo.com/searchui/v2.3826/js/templates/templates.js"></script>
+  <script src="moment.js"></script>
+
+  <script src="CustomFilter.js"></script>
+  <link rel="stylesheet" href="CustomFilter.css" />
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new CustomFilter(document.body);
+
+      Coveo.SearchEndpoint.configureSampleEndpointV2();
+      Coveo.init(document.body);
+    })
+  </script>
+</head>
+
+<body id="search" class='CoveoSearchInterface' data-enable-history="true">
+  <div class="coveo-tab-section">
+    <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
+  </div>
+  <div class='coveo-search-section'>
+    <div class="CoveoSearchbox"></div>
+    <div class='custom-filter'>
+      <fieldset>
+        Between
+        <div class='date-picker from'></div>
+        And
+        <div class='date-picker to'></div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="coveo-main-section">
+    <div class="coveo-facet-column">
+      <div class="CoveoFacet" data-title="Type" data-field="@objecttype" data-tab="All"></div>
+      <div class="CoveoFacet" data-title="FileType" data-field="@filetype" data-tab="All"></div>
+    </div>
+    <div class="coveo-results-column">
+      <div class="CoveoBreadcrumb"></div>
+      <div class="coveo-results-header">
+        <div class="coveo-summary-section">
+          <span class="CoveoQuerySummary"></span>
+          <span class="CoveoQueryDuration"></span>
+        </div>
+        <div class="coveo-result-layout-section">
+          <span class="CoveoResultLayout"></span>
+        </div>
+        <div class="coveo-sort-section">
+          <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+          <span class="CoveoSort" data-sort-criteria="date descending,date ascending" data-caption="Date"></span>
+        </div>
+      </div>
+      <div class="CoveoHiddenQuery"></div>
+      <div class="CoveoDidYouMean"></div>
+      <div class="CoveoErrorReport"></div>
+      <div class="CoveoResultList" data-layout="list"></div>
+      <div class="CoveoResultList" data-layout="card"></div>
+      <div class="CoveoPager"></div>
+      <div class="CoveoLogo"></div>
+      <div class="CoveoResultsPerPage"></div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+.custom-filter {
+  border: none;
+  padding: 0;
+  margin: 10px 0px 0px 0px;
+}
+
+.custom-filter fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.date-picker {
+  width: 100px;
+  margin: 10px 0px 10px 0px;
+  display: inline-block;
+}
