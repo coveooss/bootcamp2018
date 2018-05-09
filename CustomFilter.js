@@ -25,18 +25,29 @@ class CustomFilter {
     // Everytime the user select a new value in the date picker, this function will execute.
     // For now, we simply low the selected date in the console. 
     // We might want to do something more useful with it.
-    console.log(date);
+
+    this.startDate = date;
+    Coveo.executeQuery(this.searchInterface);
   }
 
   handleEndDateChange(date) {
-    console.log(date);
+
+    this.endDate = date;
+    Coveo.executeQuery(this.searchInterface);
   }
 
   handleBuildingQuery(args) {
     // Everytime a new query is fired, this function will execute.
     // We can use the query builder to send a valid query expression to the index.
     // Use this page to see examples of possible valid query expression : http://www.coveo.com/go?dest=cloudhelp&lcid=9&context=357
-    args.queryBuilder.advancedExpression.add(' ')
+    if(this.startDate) {
+      args.queryBuilder.advancedExpression.add(`@date>=${this.startDate}`);
+    }
+
+    if(this.endDate) {
+      args.queryBuilder.advancedExpression.add(`@date<=${this.endDate}`);
+    }
+
   }
 
 }

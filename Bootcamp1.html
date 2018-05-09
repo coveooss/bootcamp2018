@@ -11,14 +11,19 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       Coveo.SearchEndpoint.configureSampleEndpointV2();
-      Coveo.init(document.body);
+      Coveo.init(document.body).then(()=>{
+        const facetElement = document.querySelector('.CoveoFacet[data-field="@filetype"]');
+        Coveo.get(facetElement).selectValue('pdf');
+      });
     })
   </script>
 </head>
 
 <body id="search" class='CoveoSearchInterface' data-enable-history="true">
+  
   <div class="coveo-tab-section">
     <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
+    <a class="CoveoTab" data-id="YouTube" data-caption="YouTube" data-expression="@filetype==youtubevideo"></a>
   </div>
   <div class='coveo-search-section'>
     <div class="CoveoSearchbox"></div>
@@ -26,7 +31,9 @@
   <div class="coveo-main-section">
     <div class="coveo-facet-column">
       <div class="CoveoFacet" data-title="Type" data-field="@objecttype" data-tab="All"></div>
-      <div class="CoveoFacet" data-title="FileType" data-field="@filetype" data-tab="All"></div>
+      <div class="CoveoFacet"  data-title="FileType" data-field="@filetype" data-tab="All"></div>
+      <div class="CoveoFacetSlider" data-field="@ytviewcount" data-title="Views" data-start="0" data-end="5000" data-range-slider="true" data-graph-steps="10" data-tab="YouTube"></div>
+      
     </div>
     <div class="coveo-results-column">
       <div class="CoveoBreadcrumb"></div>
