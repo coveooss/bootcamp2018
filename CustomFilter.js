@@ -13,12 +13,12 @@ class CustomFilter {
     // The first parameter of the constructor function is the callback function we wish to execute every time a new value is selected in the calendar.
 
     // We need two date picker : one for the start date, a second one for the end date.
-    this.startDatePicker = new Coveo.DatePicker(picker => this.handleStartDateChange(picker.getValue()));
+    const startDatePicker = new Coveo.DatePicker(picker => this.handleStartDateChange(picker.getValue()));
     // Append each date picker element to the correct HTMLElement
-    Coveo.$$(this.searchInterface).find('.from').appendChild(this.startDatePicker.build());
+    Coveo.$$(this.searchInterface).find('.from').appendChild(startDatePicker.build());
 
-    this.endDatePicker = new Coveo.DatePicker(picker => this.handleEndDateChange(picker.getValue()));
-    Coveo.$$(this.searchInterface).find('.to').appendChild(this.endDatePicker.build());
+    const endDatePicker = new Coveo.DatePicker(picker => this.handleEndDateChange(picker.getValue()));
+    Coveo.$$(this.searchInterface).find('.to').appendChild(endDatePicker.build());
   }
 
   handleStartDateChange(date) {
