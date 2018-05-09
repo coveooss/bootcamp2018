@@ -34,7 +34,7 @@ There must be 10 steps in your graph. This is done by using the `data-graph-step
 
 Your component should be a `rangeSlider`.
 
-Voir la [documentation](https://coveo.github.io/search-ui/components/facetslider.html)
+See the [documentation](https://coveo.github.io/search-ui/components/facetslider.html)
     
 ### Select a facet value automatically through code.
 
